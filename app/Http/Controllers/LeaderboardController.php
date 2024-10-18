@@ -30,7 +30,7 @@ class LeaderboardController extends Controller
                     } elseif ($filter == 'year') {
                         $q->whereYear('created_at', now()->year);
                     }
-                    $q->select(\DB::raw('count(*)*20'));
+                    $q->select(\DB::raw("count(*)*".\App\Models\UsersActivity::POINT));
                 }]);
             }
 
